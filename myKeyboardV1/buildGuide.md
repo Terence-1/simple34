@@ -10,4 +10,6 @@
 
   most of this build is self explanitory, solder the parts on the side for each half
 
+  you will need to solder the wires like this so that QMK can detect what half is what
+
   ![IMG_20251206_122525 1](https://github.com/user-attachments/assets/ccb46c7b-0660-407c-8821-31ae5d14bd29)
