@@ -13,3 +13,6 @@
   you will need to solder the wires like this so that QMK can detect what half is what
 
   ![IMG_20251206_122525 1](https://github.com/user-attachments/assets/ccb46c7b-0660-407c-8821-31ae5d14bd29)
+
+
+The qmk file support vial config but my keymap must be added in manually for the tap dance and combos
