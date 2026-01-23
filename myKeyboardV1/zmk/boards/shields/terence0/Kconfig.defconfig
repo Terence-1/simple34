@@ -6,9 +6,6 @@ if SHIELD_TERENCE0_LEFT
 config ZMK_KEYBOARD_NAME
     default "Terence0 Left"
 
-config ZMK_SPLIT_ROLE_PERIPHERAL
-    default y
-
 endif
 
 if SHIELD_TERENCE0_RIGHT
@@ -16,15 +13,23 @@ if SHIELD_TERENCE0_RIGHT
 config ZMK_KEYBOARD_NAME
     default "Terence0 Right"
 
-config ZMK_SPLIT_ROLE_PERIPHERAL
-    default y
-
 endif
 
 if SHIELD_TERENCE0_DONGLE
 
 config ZMK_KEYBOARD_NAME
     default "Terence0"
+
+endif
+
+if SHIELD_TERENCE0_LEFT || SHIELD_TERENCE0_RIGHT
+
+config ZMK_SPLIT_ROLE_PERIPHERAL
+    default y
+
+endif
+
+if SHIELD_TERENCE0_DONGLE
 
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
