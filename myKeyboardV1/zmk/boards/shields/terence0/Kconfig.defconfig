@@ -1,37 +1,18 @@
 # Copyright (c) 2025 Terence Ng
 # SPDX-License-Identifier: MIT
 
-if SHIELD_TERENCE0_LEFT
-
-config ZMK_KEYBOARD_NAME
-    default "Terence0 Left"
-
-endif
-
-if SHIELD_TERENCE0_RIGHT
-
-config ZMK_KEYBOARD_NAME
-    default "Terence0 Right"
-
-endif
-
 if SHIELD_TERENCE0_DONGLE
 
 config ZMK_KEYBOARD_NAME
     default "Terence0"
 
-endif
-
-if SHIELD_TERENCE0_LEFT || SHIELD_TERENCE0_RIGHT
-
-config ZMK_SPLIT_ROLE_PERIPHERAL
+config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
-endif
+config ZMK_USB
+	default y
 
-if SHIELD_TERENCE0_DONGLE
-
-config ZMK_SPLIT_ROLE_CENTRAL
+CONFIG_ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
     default y
 
 endif
