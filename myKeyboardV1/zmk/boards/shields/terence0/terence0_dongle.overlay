@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) 2025 Terence Ng
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "terence0.dtsi"
+
+// Dongle doesn't have a physical matrix, just receives from peripherals
+&kscan0 {
+    status = "disabled";
+};
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+    };
+};
