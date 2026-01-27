@@ -25,13 +25,3 @@
         , <&pro_micro 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // GP9
         ;
 };
-
-/ {
-    leds {
-        compatible = "gpio-leds";
-        power_led: led_0 {
-            gpios = <&pro_micro 1 GPIO_ACTIVE_HIGH>;  // GP21 - adjust pin as needed
-            label = "Power LED";
-        };
-    };
-};
