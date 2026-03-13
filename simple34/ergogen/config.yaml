@@ -117,7 +117,10 @@ outlines:
     - what: outline
       name: plateEdge
       fillet: 1
-
+cases:
+  bottomLeft:
+    - name: pcbEdge
+      extrude: 1.6
 pcbs:
   dofeKeyboard_main:
     outlines:
