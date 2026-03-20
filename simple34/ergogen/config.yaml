@@ -94,6 +94,10 @@ outlines:
     - what: rectangle
       where: true
       size: [cx - 4, cy - 3]
+  switchOutlineLarger:
+    - what: rectangle
+      where: true
+      size: [cx - 2.8, cy - 1.8]
   pcbEdge:
     - what: outline
       name: main
@@ -105,6 +109,17 @@ outlines:
       operation: add
     - what: outline
       name: pcbEdge
+      fillet: 1
+  plateEdgeLarger:
+    - what: outline
+      name: main
+    - what: outline
+      name: thumb
+      operation: add
+    - operation: subtract
+      name: switchOutlineLarger
+    - what: outline
+      name: plateEdgeLarger
       fillet: 1
   plateEdge:
     - what: outline
@@ -276,6 +291,11 @@ outlines:
     - name: topPlateEdge
     - operation: subtract
       name: m2mounting
+  topPlate3dUpper:
+    - name: plateEdgeLarger
+    - name: topPlateEdge
+    - operation: subtract
+      name: m2mounting
 cases:
   bottomLeft:
     - name: bottomPlateNonSlip
@@ -311,6 +331,9 @@ cases:
   topPlate:
     - name: topPlate3d
       extrude: 1.2
+    - name: topPlate3dUpper
+      extrude: 0.8
+      shift: [0, 0, 1.2]
 pcbs:
   dofeKeyboard_main:
     outlines:
