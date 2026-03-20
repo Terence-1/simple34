@@ -117,10 +117,200 @@ outlines:
     - what: outline
       name: plateEdge
       fillet: 1
+  noFilletPcbEdge:
+    - what: outline
+      name: main
+      fillet: 1
+    - what: outline
+      name: fill
+      operation: add
+    - what: outline
+      name: thumb
+      operation: add
+  bottomPlate:
+    - name: pcbEdge
+      expand: 1.5
+  bottomPlateEdgeLower:
+    - name: bottomPlate
+    - operation: subtract
+      name: pcbEdge
+  bottomPlateEdgeUpper:
+    - name: plateEdge
+      expand: 1.5
+    - operation: subtract
+      name: pcbEdge
+  brassInsertsOutside:
+    - what: circle
+      radius: 1.5
+      where:
+        ref: matrix_pinky_top
+        shift: [(cx / 2) - 3, (cy / 2) + 3]
+    - what: circle
+      radius: 1.5
+      where:
+        ref: matrix_pinky_bottom
+        shift: [(cx / 2) + 4, (-cy / 2) + 3]
+    - what: circle
+      radius: 1.5
+      where:
+        ref: thumb_left_cluster
+        shift: [(cx / 2) + 4.5, (cy / 2) - 2.5]
+    - what: circle
+      radius: 1.5
+      where:
+        ref: matrix_index_top
+        shift: [(cx / 2), (-cy / 2)]
+  brassInsertsHole:
+    - what: circle
+      radius: .8
+      where:
+        ref: matrix_pinky_top
+        shift: [(cx / 2) - 3, (cy / 2) + 3]
+    - what: circle
+      radius: .8
+      where:
+        ref: matrix_pinky_bottom
+        shift: [(cx / 2) + 4, (-cy / 2) + 3]
+    - what: circle
+      radius: .8
+      where:
+        ref: thumb_left_cluster
+        shift: [(cx / 2) + 4.5, (cy / 2) - 2.5]
+    - what: circle
+      radius: .8
+      where:
+        ref: matrix_index_top
+        shift: [(cx / 2), (-cy / 2)]
+  m2mounting:
+    - what: circle
+      radius: 1
+      where:
+        ref: matrix_pinky_top
+        shift: [(cx / 2) - 3, (cy / 2) + 3]
+    - what: circle
+      radius: 1
+      where:
+        ref: matrix_pinky_bottom
+        shift: [(cx / 2) + 4, (-cy / 2) + 3]
+    - what: circle
+      radius: 1
+      where:
+        ref: thumb_left_cluster
+        shift: [(cx / 2) + 4.5, (cy / 2) - 2.5]
+    - what: circle
+      radius: 1
+      where:
+        ref: matrix_index_top
+        shift: [(cx / 2), (-cy / 2)]
+  brassInsertsPos:
+    - name: brassInsertsOutside
+    - operation: subtract
+      name: brassInsertsHole
+  brassInsertsPlate:
+    - name: bottomPlate
+    - operation: subtract
+      name: brassInsertsHole
+  nonSlip:
+    - what: circle
+      radius: 3
+      where:
+        ref: matrix_inner_top
+        shift: [(cx / 2) - 2, (cy / 2) - 2]
+    - what: circle
+      radius: 3
+      where:
+        ref: matrix_pinky_top
+        shift: [-(cx / 2) + 2, (cy / 2) - 2]
+    - what: circle
+      radius: 3
+      where:
+        ref: matrix_pinky_bottom
+        shift: [-(cx / 2) + 2, -(cy / 2) + 2]
+    - what: circle
+      radius: 3
+      where:
+        ref: thumb_left_cluster
+        shift: [-(cx / 2) + 2, -(cy / 2) + 2]
+    - what: circle
+      radius: 3
+      where:
+        ref: thumb_right_cluster
+        shift: [(cx / 2) - 2, -(cy / 2) + 2]
+    - what: circle
+      radius: 3
+      where:
+        ref: matrix_inner_top
+        shift: [1.5cx + 1.8, (-cy / 2) + 3]
+  bottomPlateNonSlip:
+    - name: bottomPlate
+    - operation: subtract
+      name: nonSlip
+  screwHole:
+    - what: circle
+      radius: 1
+      where:
+        ref: matrix_pinky_top
+        shift: [(cx / 2) - 3, (cy / 2) + 3]
+    - what: circle
+      radius: 1
+      where:
+        ref: matrix_pinky_bottom
+        shift: [(cx / 2) + 4, (-cy / 2) + 3]
+    - what: circle
+      radius: 1
+      where:
+        ref: thumb_left_cluster
+        shift: [(cx / 2) + 4.5, (cy / 2) - 2.5]
+    - what: circle
+      radius: 1
+      where:
+        ref: matrix_index_top
+        shift: [(cx / 2), (-cy / 2)]
+  topPlateEdge:
+    - name: plateEdge
+      expand: 1.5
+    - operation: subtract
+      name: noFilletPcbEdge
+  topPlate3d:
+    - name: plateEdge
+    - name: topPlateEdge
+    - operation: subtract
+      name: m2mounting
 cases:
   bottomLeft:
-    - name: pcbEdge
-      extrude: 1.6
+    - name: bottomPlateNonSlip
+      extrude: 1
+    - name: brassInsertsPlate
+      extrude: 1
+      shift: [0, 0, 1]
+    - name: brassInsertsPos
+      extrude: 1.45
+      shift: [0, 0, 2]
+    - name: bottomPlateEdgeLower
+      extrude: 3.45
+      shift: [0, 0, 2]
+    - name: bottomPlateEdgeUpper
+      extrude: 1.1
+      shift: [0, 0, 5.35]
+  bottomRight:
+    - name: bottomPlateNonSlip
+      extrude: 1
+      shift: [0, 0, -1]
+    - name: brassInsertsPlate
+      extrude: 1
+      shift: [0, 0, -2]
+    - name: brassInsertsPos
+      extrude: 1.45
+      shift: [0, 0, -3.45]
+    - name: bottomPlateEdgeLower
+      extrude: 3.45
+      shift: [0, 0, -5.45]
+    - name: bottomPlateEdgeUpper
+      extrude: 1.1
+      shift: [0, 0, -6.45]
+  topPlate:
+    - name: topPlate3d
+      extrude: 1.2
 pcbs:
   dofeKeyboard_main:
     outlines:
