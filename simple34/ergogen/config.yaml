@@ -281,59 +281,14 @@ outlines:
       where:
         ref: matrix_index_top
         shift: [(cx / 2), (-cy / 2)]
-  topPlateEdge:
-    - name: plateEdge
-      expand: 1.5
-    - operation: subtract
-      name: noFilletPcbEdge
   topPlate3d:
     - name: plateEdge
-    - name: topPlateEdge
     - operation: subtract
       name: m2mounting
   topPlate3dUpper:
     - name: plateEdgeLarger
-    - name: topPlateEdge
     - operation: subtract
       name: m2mounting
-cases:
-  bottomLeft:
-    - name: bottomPlateNonSlip
-      extrude: 1
-    - name: brassInsertsPlate
-      extrude: 1
-      shift: [0, 0, 1]
-    - name: brassInsertsPos
-      extrude: 1.45
-      shift: [0, 0, 2]
-    - name: bottomPlateEdgeLower
-      extrude: 3.45
-      shift: [0, 0, 2]
-    - name: bottomPlateEdgeUpper
-      extrude: 1.1
-      shift: [0, 0, 5.35]
-  bottomRight:
-    - name: bottomPlateNonSlip
-      extrude: 1
-      shift: [0, 0, -1]
-    - name: brassInsertsPlate
-      extrude: 1
-      shift: [0, 0, -2]
-    - name: brassInsertsPos
-      extrude: 1.45
-      shift: [0, 0, -3.45]
-    - name: bottomPlateEdgeLower
-      extrude: 3.45
-      shift: [0, 0, -5.45]
-    - name: bottomPlateEdgeUpper
-      extrude: 1.1
-      shift: [0, 0, -6.45]
-  topPlate:
-    - name: topPlate3d
-      extrude: 1.2
-    - name: topPlate3dUpper
-      extrude: 0.8
-      shift: [0, 0, 1.2]
 pcbs:
   dofeKeyboard_main:
     outlines:
