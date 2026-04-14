@@ -285,3 +285,11 @@ pcbs:
         where:
           ref: matrix_index_top
           shift: [(cx / 2), (-cy / 2)]
+  pcbFoam:
+    outlines:
+      edge:
+        outline: pcbEdge
+    footprints:
+      cutout:
+        what: socket_cutout
+        where: true
