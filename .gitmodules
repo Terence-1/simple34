@@ -4,3 +4,6 @@
 [submodule "rmk"]
 	path = rmk
 	url = https://github.com/Terence-1/rmk-config-simple34
+[submodule "zmk"]
+	path = zmk
+	url = https://github.com/Terence-1/zmk-config-simple34
